@@ -262,6 +262,10 @@ class Llama:
 
         self.params = llama_cpp.llama_context_default_params()
         self.params.n_ctx = n_ctx
+        if n_gqa is not None:
+            self.params.n_gqa = n_gqa
+        if rms_norm_eps is not None:
+            self.params.rms_norm_eps = rms_norm_eps
         self.params.n_gpu_layers = n_gpu_layers
         self.params.seed = seed
         self.params.f16_kv = f16_kv
